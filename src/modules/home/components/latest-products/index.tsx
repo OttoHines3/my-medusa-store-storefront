@@ -3,6 +3,7 @@ import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ProductPreview from "@modules/products/components/product-preview"
 
 export default async function LatestProducts({
@@ -28,18 +29,36 @@ export default async function LatestProducts({
     }
 
     return (
-        <div className="content-container py-12 small:py-24">
-            <div className="flex justify-between mb-8">
-                <Text className="txt-xlarge">Latest products</Text>
-                <InteractiveLink href="/store">View all</InteractiveLink>
+        <section className="w-full bg-neutral-100 py-16">
+            <div className="content-container">
+                <div className="flex items-center justify-between mb-10">
+                    <Text className="txt-xlarge">Featured</Text>
+                    <InteractiveLink href="/store">View All</InteractiveLink>
+                </div>
+
+                <ul className="grid grid-cols-2 small:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {products.map((product) => (
+                        <li
+                            key={product.id}
+                            className="bg-white border border-gray-200 rounded-lg p-6 flex flex-col h-full"
+                        >
+                            <ProductPreview
+                                product={product}
+                                region={region}
+                                isFeatured
+                            />
+
+                            {/* CTA */}
+                            <LocalizedClientLink
+                                href={`/products/${product.handle}`}
+                                className="mt-auto bg-black text-white rounded-md h-10 flex items-center justify-center text-small-regular hover:opacity-90 transition-opacity duration-150"
+                            >
+                                View Product
+                            </LocalizedClientLink>
+                        </li>
+                    ))}
+                </ul>
             </div>
-            <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-24 small:gap-y-36">
-                {products.map((product) => (
-                    <li key={product.id}>
-                        <ProductPreview product={product} region={region} isFeatured />
-                    </li>
-                ))}
-            </ul>
-        </div>
+        </section>
     )
 } 
