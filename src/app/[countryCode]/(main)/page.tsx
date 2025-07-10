@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
+import LatestProducts from "@modules/home/components/latest-products"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
@@ -24,16 +25,17 @@ export default async function Home(props: {
     fields: "id, handle, title",
   })
 
-  if (!collections || !region) {
+  if (!region) {
     return null
   }
 
   return (
     <>
       <Hero />
+      <LatestProducts countryCode={countryCode} region={region} />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
+          <FeaturedProducts collections={collections ?? []} region={region} />
         </ul>
       </div>
     </>

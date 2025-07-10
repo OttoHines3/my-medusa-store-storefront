@@ -3,7 +3,7 @@ import { Heading } from "@medusajs/ui"
 const Hero = () => {
   return (
     <div
-      className="h-[75vh] w-full relative"
+      className="h-[75vh] w-full relative overflow-hidden"
       style={{ background: "linear-gradient(90deg, #7A0C19 0%, #000000 100%)" }}
     >
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
@@ -25,6 +25,18 @@ const Hero = () => {
         </span>
         {/* Removed GitHub call-to-action – marketplace doesn’t need it */}
       </div>
+      {/* Wave at bottom */}
+      <svg
+        className="absolute bottom-0 left-0 w-full"
+        viewBox="0 0 500 80"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0 30 C 150 60 350 0 500 30 L 500 80 L 0 80 Z"
+          fill="#ffffff"
+        />
+      </svg>
     </div>
   )
 }
