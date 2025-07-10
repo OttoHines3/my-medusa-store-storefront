@@ -1,33 +1,29 @@
-import { Github } from "@medusajs/icons"
-import { Button, Heading } from "@medusajs/ui"
+import { Heading } from "@medusajs/ui"
 
 const Hero = () => {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
+    <div
+      className="h-[75vh] w-full relative"
+      style={{ background: "linear-gradient(90deg, #7A0C19 0%, #000000 100%)" }}
+    >
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
         <span>
           <Heading
             level="h1"
-            className="text-3xl leading-10 text-ui-fg-base font-normal"
+            className="text-4xl leading-tight font-semibold"
+            style={{ color: "#FFFFFF" }}
           >
-            Ecommerce Starter Template
+            VinTel Module Marketplace
           </Heading>
           <Heading
             level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
+            className="text-xl leading-relaxed font-normal mt-2"
+            style={{ color: "#DDDDDD" }}
           >
-            Powered by Medusa and Next.js
+            Purchase VinTel diagnostic modules directly online – an extension of our main website.
           </Heading>
         </span>
-        <a
-          href="https://github.com/medusajs/nextjs-starter-medusa"
-          target="_blank"
-        >
-          <Button variant="secondary">
-            View on GitHub
-            <Github />
-          </Button>
-        </a>
+        {/* Removed GitHub call-to-action – marketplace doesn’t need it */}
       </div>
     </div>
   )
