@@ -101,11 +101,13 @@ Your site is now running at http://localhost:8000!
 By default this starter supports the following payment integrations
 
 - [Stripe](https://stripe.com/)
+- [Zoho](https://www.zoho.com/)
 
 To enable the integrations you need to add the following to your `.env.local` file:
 
 ```shell
 NEXT_PUBLIC_STRIPE_KEY=<your-stripe-public-key>
+NEXT_PUBLIC_ZOHO_KEY=<your-zoho-api-key>
 ```
 
 You'll also need to setup the integrations in your Medusa server. See the [Medusa documentation](https://docs.medusajs.com) for more information on how to configure [Stripe](https://docs.medusajs.com/resources/commerce-modules/payment/payment-provider/stripe#main).
