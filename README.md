@@ -110,6 +110,14 @@ NEXT_PUBLIC_STRIPE_KEY=<your-stripe-public-key>
 
 You'll also need to setup the integrations in your Medusa server. See the [Medusa documentation](https://docs.medusajs.com) for more information on how to configure [Stripe](https://docs.medusajs.com/resources/commerce-modules/payment/payment-provider/stripe#main).
 
+## Document signing
+
+If you want customers to sign a document after successful payment, provide the URL to your DocuSign or PandaDoc embed page in the following environment variable:
+
+```shell
+NEXT_PUBLIC_SIGN_DOCUMENT_URL=<your-signature-iframe-url>
+```
+
 # Resources
 
 ## Learn more about Medusa
